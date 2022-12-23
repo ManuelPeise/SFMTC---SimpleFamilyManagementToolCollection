@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Core", "Web.Core\Web.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Data", "Shared.Data\Shared.Data.csproj", "{7DD57797-26FC-4FD3-B96D-38477668FE1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.ViewModels", "Data.ViewModels\Data.ViewModels.csproj", "{3143B7B0-F21C-4CE5-BF38-D65C5627CA1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ViewModels", "Data.ViewModels\Data.ViewModels.csproj", "{3143B7B0-F21C-4CE5-BF38-D65C5627CA1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Services", "Data.Services\Data.Services.csproj", "{C23F8344-833D-43E1-BE49-2983679D4100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services", "Data.Services\Data.Services.csproj", "{C23F8344-833D-43E1-BE49-2983679D4100}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
