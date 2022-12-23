@@ -2,7 +2,6 @@
 {
     public enum SectionEnum
     {
-        Pages = 0,
-        // Profile = 1
+        CookingBook = 0,
     }
 }

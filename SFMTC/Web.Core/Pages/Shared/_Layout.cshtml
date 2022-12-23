@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="page">
-        <div class="sidebar-container">
+        <div id="sidebar-container" class="sidebar-container">
             <div class="sidebar-header">
                 <div class="sidebar-header-logo-container">
                     <a class="logo-container" asp-page="/Index">
@@ -32,7 +32,7 @@
             </div>
             @* --- SIDEBAR --- *@
             <div class="sidebar-body">
-                <vc:side-menu/>
+                <vc:side-menu />
             </div>
         </div>
         @* --- CONTENT --- *@
@@ -42,7 +42,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="page-title">
-                    <h5>Web.Core - @ViewBag.Title</h5>
+                    <h5>@ViewBag.Title</h5>
                 </div>
             </div>
             <div class="content-body">
@@ -51,7 +51,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(() => {
             let sidebartoggle = document.querySelector("#sidebarToggle");
 
@@ -59,8 +59,9 @@
                 document.querySelector("body").classList.toggle("active");
                 document.querySelector("#sidebarToggle").classList.toggle("active");
             });
-        });
+        })
     </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -25,17 +25,24 @@ namespace Data.Services
         public async Task<NavigationViewModel> LoadLayoutViewModel()
         {
             var sections = Enum.GetNames(typeof(SectionEnum));
-            var pageNames = Enum.GetNames(typeof(PageNameEnums));
 
             var navSections = (from s in sections
+                               let model = NavigationTypeFactory.GetSection((SectionEnum)Enum.Parse(typeof(SectionEnum), s))
                                let value = (SectionEnum)Enum.Parse(typeof(SectionEnum), s)
                                select new NavigationSection
                                {
-                                   SectionId = s,
-                                   Title = s,
-                                   IconClassName = GetIconClassName(value),
+                                   SectionId = model.SectionId.ToString(),
+                                   Title = model.DisplayName,
+                                   IconClassName = model.SectionIcon,
                                    IsCollapsed = false,
-                                   MenuItems = GetNavItems(value)
+                                   MenuItems = (from item in model.MenuItems
+                                                select new LinkViewModel
+                                                {
+                                                    ItemId = item.ItemId,
+                                                    Disabled = false,
+                                                    DisplayName = item.DisplayName,
+                                                    To = item.Path
+                                                }).ToList()
                                }).ToList();
 
             return await Task.FromResult(new NavigationViewModel
@@ -44,47 +51,5 @@ namespace Data.Services
             });
         }
 
-        #region private members
-
-        private List<LinkViewModel> GetNavItems(SectionEnum value)
-        {
-            var type = NavigationTypeFactory.GetNavigationType(value);
-
-            var navItemValues = NavigationTypeFactory.GetValues(type);
-
-            var pages = (from item in navItemValues
-                         select new LinkViewModel
-                         {
-                             DisplayName = item,
-                             Disabled = false,
-                             To = GetPath((PageNameEnums)Enum.Parse(type, item))
-                         }).ToList();
-
-            return pages;
-        }
-
-        private string GetPath(PageNameEnums page)
-        {
-            switch (page)
-            {
-                case PageNameEnums.Privacy:
-                    return "/Privacy";
-                default: return "/";
-            }
-        }
-
-        private string GetIconClassName(SectionEnum section)
-        {
-            switch (section)
-            {
-                case SectionEnum.Pages:
-                    return "fa-solid fa-file";
-                //case SectionEnum.Profile:
-                //    return "fa-solid fa-user";
-                default: return "/";
-            }
-        }
-
-        #endregion
     }
 }
