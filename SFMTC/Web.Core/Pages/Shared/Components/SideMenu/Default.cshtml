@@ -1,0 +1,30 @@
+﻿@model NavigationViewModel
+
+@foreach (var s in Model.NavigationSections)
+{
+    <hr class="divider" />
+    <div class="section-title-container" data-bs-toggle="collapse" data-bs-target="#@s.SectionId" aria-controls="@s.SectionId" role="button">
+        <div class="section-title">
+            <div class="row">
+                <div class="col-2"><i class="@s.IconClassName"></i></div>
+                <div class="col-10">@s.Title</div>
+            </div>
+        </div>
+    </div>
+    <div class="collapse" id="@s.SectionId">
+        <ul class="navigation">
+            @foreach (var item in s.MenuItems)
+            {
+                <li class="navigation-list-item" id="@item.ItemId">
+                    <a class="nav-link" asp-area="" asp-page="@item.To">
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-10">@item.DisplayName</div>
+                        </div>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+}
