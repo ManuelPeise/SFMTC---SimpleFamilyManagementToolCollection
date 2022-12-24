@@ -4,10 +4,13 @@ using Data.Services.Interfaces;
 using Data.Services.Repositories;
 using Datta.AppDataAccessLayer;
 using Microsoft.EntityFrameworkCore;
+using Shared.Data.Models.AppConfig;
 using Shared.Services;
 using Shared.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ApiConfiguration>(builder.Configuration.GetSection("ApiSettings"));
 
 builder.Services.AddDbContext<IdentityContext>(opt =>
 {
@@ -28,6 +31,8 @@ builder.Services.AddTransient<ILayoutService, LayOutService>();
 builder.Services.AddTransient<ICookingBookRepo, CookingBookRepository>();
 
 builder.Services.AddTransient<IHttpService, HttpService>();
+
+builder.Services.AddTransient<IConfigService, ConfigService>();
 
 builder.Services.AddControllers();
 

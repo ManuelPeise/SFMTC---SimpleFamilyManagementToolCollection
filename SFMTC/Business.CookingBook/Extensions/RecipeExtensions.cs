@@ -1,5 +1,5 @@
-﻿using Business.CookingBook.ExportModels;
-using Datta.AppDataAccessLayer.Entities.CookingBook;
+﻿using Datta.AppDataAccessLayer.Entities.CookingBook;
+using Shared.Data.Models.Cookingbook;
 
 namespace Business.CookingBook.Extensions
 {
