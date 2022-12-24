@@ -1,7 +1,9 @@
 using Data.Identity;
 using Data.Services;
 using Data.Services.Interfaces;
+using Data.Services.Repositories;
 using Datta.AppDataAccessLayer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,10 @@ builder.Services.AddDbContext<AppDataContext>(opt =>
 });
 
 builder.Services.AddTransient<ILayoutService, LayOutService>();
+
+builder.Services.AddTransient<ICookingBookRepo, CookingBookRepository>();
+
+builder.Services.AddControllers();
 
 builder.Services.AddRazorPages();
 
@@ -42,5 +48,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();
