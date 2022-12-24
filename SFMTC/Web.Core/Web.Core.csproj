@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Data.Identity\Data.Identity.csproj" />
     <ProjectReference Include="..\Data.Services\Data.Services.csproj" />
     <ProjectReference Include="..\Data.ViewModels\Data.ViewModels.csproj" />
+    <ProjectReference Include="..\Datta.AppDataAccessLayer\Datta.AppDataAccessLayer.csproj" />
   </ItemGroup>
 
 </Project>
