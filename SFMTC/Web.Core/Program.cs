@@ -1,6 +1,7 @@
 using Data.Identity;
 using Data.Services;
 using Data.Services.Interfaces;
+using Datta.AppDataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<IdentityContext>(opt =>
 {
     var connection = builder.Configuration.GetConnectionString("IdentityContext");
+
+    opt.UseMySql(connection, ServerVersion.AutoDetect(connection));
+});
+
+builder.Services.AddDbContext<AppDataContext>(opt =>
+{
+    var connection = builder.Configuration.GetConnectionString("AppDataContext");
 
     opt.UseMySql(connection, ServerVersion.AutoDetect(connection));
 });

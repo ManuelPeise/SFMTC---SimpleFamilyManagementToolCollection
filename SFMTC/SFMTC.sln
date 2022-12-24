@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.ViewModels", "Data.Vie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services", "Data.Services\Data.Services.csproj", "{C23F8344-833D-43E1-BE49-2983679D4100}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datta.AppDataAccessLayer", "Datta.AppDataAccessLayer\Datta.AppDataAccessLayer.csproj", "{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{C23F8344-833D-43E1-BE49-2983679D4100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C23F8344-833D-43E1-BE49-2983679D4100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C23F8344-833D-43E1-BE49-2983679D4100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{7DD57797-26FC-4FD3-B96D-38477668FE1F} = {0624AD0A-7A27-4AAB-84E3-94AA6E10E224}
 		{3143B7B0-F21C-4CE5-BF38-D65C5627CA1B} = {DEA30840-F4DB-4CA7-9555-2E19B7D764ED}
 		{C23F8344-833D-43E1-BE49-2983679D4100} = {DEA30840-F4DB-4CA7-9555-2E19B7D764ED}
+		{B9A0C6B7-4011-4D56-98D3-44DE58D6C7F3} = {DEA30840-F4DB-4CA7-9555-2E19B7D764ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6843F21-CC8A-4FFC-94AA-43B52E57A497}
