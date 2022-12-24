@@ -1,8 +1,7 @@
-﻿using Business.CookingBook.ExportModels;
-using Business.CookingBook.Extensions;
-using Business.CookingBook.Interfaces;
+﻿using Business.CookingBook.Extensions;
 using Business.CookingBook.Models;
 using Data.Services.Interfaces;
+using Shared.Data.Models.Cookingbook;
 
 namespace Business.CookingBook
 {

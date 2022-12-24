@@ -4,3 +4,10 @@
     ViewData["Title"] = "Kochbuch - Rezepte ansehen";
 }
 <div>View</div>
+
+<ul>
+    @foreach(var recipe in Model.Recipes)
+    {
+        <li>@recipe.RecipeName</li>
+    }
+</ul>

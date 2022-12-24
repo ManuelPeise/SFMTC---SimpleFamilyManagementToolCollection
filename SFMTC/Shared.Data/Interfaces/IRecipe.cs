@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Business.CookingBook.Interfaces
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+namespace Shared.Data.Interfaces
 {
     public interface IRecipe
     {
@@ -14,4 +15,5 @@ namespace Business.CookingBook.Interfaces
         public byte[] Image { get; set; }
         public string Category { get; set; }
     }
+
 }

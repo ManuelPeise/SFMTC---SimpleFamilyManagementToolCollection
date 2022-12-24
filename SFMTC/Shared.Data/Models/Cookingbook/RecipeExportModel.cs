@@ -1,7 +1,6 @@
-﻿using Business.CookingBook.Interfaces;
-using Shared.Data.Models.Cookingbook;
+﻿using Shared.Data.Interfaces;
 
-namespace Business.CookingBook.ExportModels
+namespace Shared.Data.Models.Cookingbook
 {
     public class RecipeExportModel : IRecipe
     {
