@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.1" />
+    <Compile Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared.Data\Shared.Data.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.1" />
   </ItemGroup>
 
 </Project>
