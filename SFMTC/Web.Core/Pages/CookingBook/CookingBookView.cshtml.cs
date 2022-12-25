@@ -1,8 +1,9 @@
+using Data.ViewModels.CookingBook;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shared.Data.Models.Cookingbook;
 using Shared.Services.Interfaces;
-using System.Collections.Generic;
+using Web.Core.UIExtensions;
 
 namespace Web.Core.Pages.CookingBook
 {
@@ -13,7 +14,7 @@ namespace Web.Core.Pages.CookingBook
         private readonly string _controller = "recipe/";
 
         [BindProperty]
-        public List<RecipeExportModel> Recipes { get; set; } = new List<RecipeExportModel>();
+        public List<RecipeCardViewModel> Recipes { get; set; } = new List<RecipeCardViewModel>();
 
         public CookingBookViewModel(IHttpService httpService, IConfigService configService)
         {
@@ -23,8 +24,11 @@ namespace Web.Core.Pages.CookingBook
 
         public async Task<IActionResult> OnGet()
         {
-            Recipes = await _httpService.Get<List<RecipeExportModel>>($"{_configService.ApiConfig.Value.BaseUrl}{_controller}GetRecipes", new List<KeyValuePair<string, string>>());
-            
+            var models = await _httpService.Get<List<RecipeExportModel>>($"{_configService.ApiConfig.Value.BaseUrl}{_controller}GetRecipes", new List<KeyValuePair<string, string>>());
+
+            Recipes = (from model in models
+                       select model.ToViewModel()).ToList();
+           
             return Page();
         }
     }
