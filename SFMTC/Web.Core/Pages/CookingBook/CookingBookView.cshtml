@@ -3,11 +3,16 @@
 @{
     ViewData["Title"] = "Kochbuch - Rezepte ansehen";
 }
+
 <div>View</div>
 
-<ul>
-    @foreach(var recipe in Model.Recipes)
-    {
-        <li>@recipe.RecipeName</li>
-    }
-</ul>
+<div class="container mt-4">
+    <div class="row gy-3">
+        
+            @foreach (var recipe in Model.Recipes)
+            {
+                <vc:recipe-card model="@recipe" />
+            }
+        </div>
+    
+</div>
