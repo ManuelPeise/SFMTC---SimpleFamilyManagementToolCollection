@@ -1,5 +1,4 @@
 ﻿using Business.CookingBook;
-using Business.CookingBook.Models;
 using Data.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.Data.Models.Cookingbook;

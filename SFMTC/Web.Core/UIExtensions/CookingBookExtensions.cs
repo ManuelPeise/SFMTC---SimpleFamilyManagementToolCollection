@@ -17,5 +17,14 @@ namespace Web.Core.UIExtensions
                 Image = model.Image,
             };
         }
+
+        public static RecipeFilterViewModel ToViewModel(this RecipeFilterModel model) 
+        {
+            return new RecipeFilterViewModel
+            {
+                Category = model.Category,
+                Name = model.Name,
+            };
+        }
     }
 }
