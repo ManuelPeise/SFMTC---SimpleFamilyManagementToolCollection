@@ -3,16 +3,39 @@
 @{
     ViewData["Title"] = "Kochbuch - Rezepte ansehen";
 }
+<link rel="stylesheet" href="~/css/searchbar.css" />
 
-<div>View</div>
+<div class="container container-fluid">
+    <!-- START FILTER BAR-->
+    <nav class="navbar navbar-light bg-light nav-container">
+        <div class="container-fluid">
+            <a class="navbar-brand">Filter</a>
+            <form method="post" class="d-flex">
+                <div class="search-box-wrapper">
+                    <input class="form-control me-2 search-field dark" type="search" placeholder="Kategorie..." asp-for="@Model.Filter.Category" autocomplete="off" />
+                    <button class="search-button" type="submit" asp-page-handler="SubmitFilter">
+                        <i class="fa-solid fa-caret-down"></i></i>
+                    </button>
+                </div>
+                <div class="search-box-wrapper">
+                    <input class="form-control me-2 search-field dark" type="search" placeholder="Rezeptname..." asp-for="@Model.Filter.Name" autocomplete="off" />
+                </div>
+                <div class="button-wrapper">
+                    <button class="search-button" type="submit" asp-page-handler="SubmitFilter">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    <!-- END FILTERBAR -->
+    <div class="container mt-4">
+        <div class="row gy-3">
 
-<div class="container mt-4">
-    <div class="row gy-3">
-        
             @foreach (var recipe in Model.Recipes)
             {
                 <vc:recipe-card model="@recipe" />
             }
         </div>
-    
+    </div>
 </div>

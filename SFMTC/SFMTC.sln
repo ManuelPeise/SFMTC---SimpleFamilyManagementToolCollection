@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.CookingBook", "Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.CookingBook", "Business.CookingBook\Business.CookingBook.csproj", "{8E00AB71-E3D7-47D8-9ACB-FF9E09DA51B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Services", "Shared.Services\Shared.Services.csproj", "{C2769722-10AD-46B3-9F22-D5AA02D6F2AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Services", "Shared.Services\Shared.Services.csproj", "{C2769722-10AD-46B3-9F22-D5AA02D6F2AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

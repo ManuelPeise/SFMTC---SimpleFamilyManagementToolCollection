@@ -1,11 +1,10 @@
 ﻿using Business.CookingBook.Extensions;
-using Business.CookingBook.Models;
 using Data.Services.Interfaces;
 using Shared.Data.Models.Cookingbook;
 
 namespace Business.CookingBook
 {
-    public class RecipeHandler: IDisposable
+    public class RecipeHandler : IDisposable
     {
         private ICookingBookRepo _repo;
         private bool disposedValue;
@@ -15,7 +14,7 @@ namespace Business.CookingBook
             _repo = repo;
         }
 
-        
+
         public async Task<IEnumerable<RecipeExportModel>> GetRecipes()
         {
             var entities = await _repo.GetRecipes();
@@ -30,12 +29,25 @@ namespace Business.CookingBook
         {
             var entities = await _repo.GetRecipes();
 
-            var recipes = from r in entities
-                          where r.RecipeName.ToLower().StartsWith(filter.Name) &&
-                          r.Category.ToLower().Equals(filter.Category.ToLower())
-                          select r.ToExportModel();
+            if (filter.Name.Equals("all"))
+            {
+                return from recipe in entities
+                       select recipe.ToExportModel();
+            }
 
-            return recipes;
+            if (string.IsNullOrWhiteSpace(filter.Category))
+            {
+                return from r in entities
+                       where r.RecipeName.ToLower().StartsWith(filter.Name.ToLower())
+                       select r.ToExportModel();
+            }
+
+            return from r in entities
+                   where r.RecipeName.ToLower().StartsWith(filter.Name.ToLower()) &&
+                   r.Category.ToLower().Equals(filter.Category.ToLower())
+                   select r.ToExportModel();
+
+
         }
 
         #region dispose
@@ -53,7 +65,7 @@ namespace Business.CookingBook
         }
 
         public void Dispose()
-        { 
+        {
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
