@@ -1,0 +1,18 @@
+﻿@model RecipeCardViewModel
+
+<div class="col-lg-4">
+    <div class="box p-2">
+        <div class="card">
+            <img src="~/img/elephant.jpg" class="card-img-top" />
+            <div class="card-body text-center">
+                <h5 class="card-title">@Model.RecipeName</h5>
+                <p class="card-subtitle">@Model.ShortDescription</p>
+            </div>
+            <div class="container p-3 d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-primary">Anzeigen</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
